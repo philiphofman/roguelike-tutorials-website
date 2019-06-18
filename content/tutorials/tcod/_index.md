@@ -1,8 +1,9 @@
 ---
-title: "Roguelike Tutorial Revised - TCOD Version"
-date: 2019-03-30T09:53:48-07:00
+title: "Roguelike Tutorial Revised - TCOD Version 2"
+date: 2019-06-15T06:28:20-07:00
 draft: false
 ---
+
   - [Part 0 - Setting Up](/tutorials/tcod/part-0)
   - [Part 1 - Drawing the ‘@’ symbol and moving it
     around](/tutorials/tcod/part-1)

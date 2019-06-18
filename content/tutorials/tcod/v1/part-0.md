@@ -1,6 +1,6 @@
 ---
 title: "Part 0 - Setting Up"
-date: 2019-06-15T06:37:19-07:00
+date: 2019-03-30T09:53:48-07:00
 draft: false
 ---
 
@@ -36,28 +36,6 @@ it, I'd highly recommend using a virtual environment. [Documentation on
 how to do that can be found
 here.](https://docs.python.org/3/library/venv.html)
 
-Whether or not you use a virtual environment, you should create a
-`requirements.txt` file. The only requirement for this project is
-the `tcod` library, so it'll look like this:
-
-```
-tcod
-```
-
-That's it. Then, from your terminal, you can install tcod using the
-following command:
-
-```bash
-pip install -r requirements.txt
-```
-
-If you're not using a virtual environment, you may have to use this
-command instead:
-
-```bash
-pip3 install -r requirements.txt
-```
-
 #### Editors
 
 Any text editor can work for writing Python. You could even use Notepad
@@ -75,41 +53,11 @@ create a new file (in whatever directory you plan on using for the
 tutorial) called `engine.py`, and enter the following text into it:
 
 ```py3
-import tcod
-import tcod.event
+import tcod as libtcod
 
 
 def main():
-    screen_width = 80
-    screen_height = 50
-
-    # Set the font
-    tcod.console_set_custom_font(
-        "arial10x10.png",
-        tcod.FONT_LAYOUT_TCOD | tcod.FONT_TYPE_GREYSCALE,
-    )
-
-    # Initialize the root console.
-    with tcod.console_init_root(
-        w=screen_width,
-        h=screen_height,
-        order="F",
-        renderer=tcod.RENDERER_SDL2,
-        vsync=True,
-        title="Roguelike Tutorial"
-    ) as root_console:
-        # Print a basic test message
-        root_console.print(x=0, y=0, string='Hello World!', fg=tcod.white)
-
-        # Run the game.
-        while True:
-            # Show the console.
-            tcod.console_flush()
-
-            # Wait for an event, such as a mouse event or a key press
-            for event in tcod.event.wait():
-                if event.type == "QUIT":
-                    raise SystemExit()
+    print('Hello World!')
 
 
 if __name__ == '__main__':
@@ -226,13 +174,13 @@ be no spaces before "from"):
 {{< codetab >}}
 {{< diff-tab >}}
 {{< highlight diff >}}
-import tcod
+import tcod as libtcod
 
 +from input_handlers import handle_keys
 {{</ highlight >}}
 {{</ diff-tab >}}
 {{< original-tab >}}
-    <pre>import tcod
+    <pre>import tcod as libtcod
 
 <span class="new-text">from input_handlers import handle_keys</span></pre>
 {{</ original-tab >}}
@@ -255,6 +203,6 @@ link there to the Discord channel as well.
 ### Ready to go?
 
 Once you're set up and ready to go, you can proceed to [Part
-1](/tutorials/tcod/part-1/).
+1](/tutorials/tcod/v1/part-1/).
 
 <script src="/js/codetabs.js"></script>
